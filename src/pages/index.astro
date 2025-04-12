@@ -1,0 +1,49 @@
+---
+// src/pages/index.astro
+// Defines the content for the homepage route ('/').
+// Generated on: Saturday, April 12, 2025 at 11:43:45 AM IST (Mumbai, MH, IN)
+
+import HomeLayout from '../layouts/HomeLayout.astro'; // Use the specific layout
+
+// Import components rendered ON THIS PAGE (ensure paths are correct)
+import HeroSection from '../components/HeroSection.jsx';
+import WhyUs from '../components/WhyUs.jsx';
+import AboutUs from '../components/AboutUs.jsx';
+import ContactUs from '../components/ContactUs.jsx';
+import Accordion from '../components/Accordion.jsx';
+
+// Import the main interactive island component
+import InteractiveProductSelector from '../components/InteractiveProductSelector.jsx';
+
+// --- *** EDIT THIS BOOLEAN *** ---
+// Set to 'true' if Accordian uses useState/useEffect internally.
+// Set to 'false' if it's purely static display.
+const accordionNeedsJS: boolean = true; // Example: Assume Accordian needs JS
+// --- End Edit Section ---
+
+
+// Define the specific SEO metadata for this page
+const pageTitle = "TermiTrack | Home - Smart Termite Monitoring";
+const pageDescription = "Welcome to TermiTrack. Explore our advanced termite detection systems with moisture, temperature, and thermal sensors. Find your ideal solution.";
+---
+{/* Use the layout, passing the specific title and description */}
+<HomeLayout title={pageTitle} description={pageDescription}>
+
+  {/* Render page sections in order */}
+  {/* Components without client:* are rendered as static HTML initially */}
+  <HeroSection />
+
+  {/* Render the main interactive island */}
+  {/* client:load hydrates immediately */}
+  {/* client:visible hydrates when scrolled into view (often better for perf) */}
+  <InteractiveProductSelector client:load />
+
+  <WhyUs />
+  <AboutUs />
+  <ContactUs />
+
+  {/* Render Accordian. Apply client directive conditionally */}
+  {/* Use client:visible if it's lower on the page & interactive */}
+  <Accordion client:visible={accordionNeedsJS || undefined} />
+
+</HomeLayout>

@@ -1,0 +1,50 @@
+---
+import TopBar from "../components/TopBar.jsx";
+import NavBar from "../components/NavBar.jsx";
+import Footer from "../components/Footer.jsx";
+import FixedContacts from "../components/FixedContacts.jsx";
+import ReactRouterWrapper from "../components/ReactRouterWrapper.jsx"; // Import wrapper
+export interface Props {
+  title: string;
+  description: string;
+}
+const { title = "Termitrack - Default", description = "Default description." } = Astro.props;
+const topBarNeedsJS: boolean = false;
+const navBarNeedsJS: boolean = true;
+const footerNeedsJS: boolean = false;
+const fixedContactsNeedsJS: boolean = false;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content={description} />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+  <style is:global>
+    body { margin: 0; font-family: sans-serif; }
+  </style>
+</head>
+<body class="relative">
+
+  {/* Render shared components, applying client directives conditionally */}
+  <TopBar client:load={topBarNeedsJS || undefined} />
+
+  {/* Wrap NavBar with ReactRouterWrapper to provide BrowserRouter context */}
+  <!-- <ReactRouterWrapper>
+    <NavBar client:load={navBarNeedsJS || undefined} onToggleModal={() => { console.log('Toggle Modal (Placeholder)'); }} />
+  </ReactRouterWrapper> -->
+
+  <FixedContacts client:load={fixedContactsNeedsJS || undefined} />
+
+  <main>
+    <slot />
+  </main>
+
+  <Footer client:load={footerNeedsJS || undefined} />
+
+</body>
+</html>
