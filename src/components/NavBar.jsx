@@ -1,27 +1,16 @@
 import { useState, useEffect } from "react";
-import QuoteModal from "./QuoteModel"; // Assuming this component exists
-import { Link } from "react-router-dom";
-import { DropdownItem, Dropdown } from "./Dropdown"; // Assuming these exist and work
-import logo from "../../public/images/logoPart.png"; // Adjust path if needed
-import { FiChevronDown } from "react-icons/fi"; // Import chevron
+import { FiChevronDown } from "react-icons/fi";
 
-const Navbar = ({ onToggleModal }) => {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [productsMenuOpen, setProductsMenuOpen] = useState(false);
 
   useEffect(() => {
-    /* ... scroll effect ... */
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    /* ... close menus on navigation ... */
-    setMenuOpen(false);
-    setProductsMenuOpen(false);
   }, []);
 
   const toggleProductsMenu = () => {
@@ -36,32 +25,51 @@ const Navbar = ({ onToggleModal }) => {
     <nav className={navClasses}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* ... Logo (unchanged) ... */}
-          <Link to="/" className="flex items-center flex-shrink-0">
-            <img src={logo} alt="Logo Symbol" className="h-12" />
+          <a href="/" className="flex items-center flex-shrink-0">
+            <img src="/images/logoPart.png" alt="Logo" className="h-12" />
             <span className="font-varela text-5xl font-bold text-zinc-200 ml-2">
               Termitrack
             </span>
-          </Link>
-          {/* ... Desktop Navigation Links (unchanged) ... */}
+          </a>
+
           <div className="hidden md:flex items-center space-x-8">
-            <Link
-              to="/"
+            <a
+              href="/"
               className="text-white hover:text-[#FBBF24] transition px-3 py-2 rounded-md text-sm font-medium"
             >
               Home
-            </Link>
+            </a>
             <div className="relative">
-              <Dropdown label="Products">
-                <DropdownItem label="Tracker Only" to="/product/TrackerOnly" />
-                <DropdownItem
-                  label="iTracker-Base"
-                  to="/product/iTrackerBase"
-                />
-                <DropdownItem label="iTracker-Pro" to="/product/iTrackerPro" />
-              </Dropdown>
+              <button
+                onClick={toggleProductsMenu}
+                className="text-white hover:text-[#FBBF24] transition px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Products
+                <FiChevronDown className="inline-block ml-1" />
+              </button>
+              {productsMenuOpen && (
+                <div className="absolute left-0 mt-2 w-48 bg-[#003229] text-white rounded-md shadow-lg">
+                  <a
+                    href="/product/TrackerOnly"
+                    className="block px-4 py-2 text-sm hover:bg-[#FBBF24] hover:text-black"
+                  >
+                    Tracker Only
+                  </a>
+                  <a
+                    href="/product/iTrackerBase"
+                    className="block px-4 py-2 text-sm hover:bg-[#FBBF24] hover:text-black"
+                  >
+                    iTracker-Base
+                  </a>
+                  <a
+                    href="/product/iTrackerPro"
+                    className="block px-4 py-2 text-sm hover:bg-[#FBBF24] hover:text-black"
+                  >
+                    iTracker-Pro
+                  </a>
+                </div>
+              )}
             </div>
-            {/* <Link to="/about" className="text-white hover:text-[#FBBF24] transition px-3 py-2 rounded-md text-sm font-medium">About Us</Link> */}
             <a
               href="#contact"
               className="text-white hover:text-[#FBBF24] transition px-3 py-2 rounded-md text-sm font-medium"
@@ -69,8 +77,7 @@ const Navbar = ({ onToggleModal }) => {
               Contact Us
             </a>
           </div>
-          {/* ... Desktop CTA Button (Removed) ... */}
-          {/* ... Mobile Menu Button (unchanged) ... */}
+
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setMenuOpen(true)}
@@ -95,20 +102,18 @@ const Navbar = ({ onToggleModal }) => {
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
-      {menuOpen /* Overlay */ && (
+      {menuOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-[59]"
           onClick={() => setMenuOpen(false)}
         ></div>
       )}
-      {/* Drawer */}
+
       <div
         className={`fixed top-0 left-0 h-full w-64 bg-[#003229] text-white transform transition-transform duration-300 ease-in-out shadow-lg z-[60] ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        {/* Drawer Header */}
         <div className="flex justify-between items-center p-4 border-b border-gray-700">
           <span className="font-bold text-lg">Menu</span>
           <button
@@ -131,21 +136,20 @@ const Navbar = ({ onToggleModal }) => {
             </svg>
           </button>
         </div>
-        {/* Drawer Navigation */}
+
         <nav className="flex flex-col space-y-1 p-4 overflow-y-auto h-[calc(100vh-5rem)]">
-          <Link
-            to="/"
+          <a
+            href="/"
             className="block py-2.5 px-3 rounded hover:bg-gray-700 hover:text-[#FBBF24] transition"
             onClick={() => setMenuOpen(false)}
           >
             Home
-          </Link>
+          </a>
 
-          {/* --- Collapsible Products Section (Styled like dropdown) --- */}
           <div>
             <button
               onClick={toggleProductsMenu}
-              className="w-full flex justify-between items-center py-2.5 px-3 rounded hover:bg-gray-700 hover:text-[#FBBF24] transition text-left font-medium" // Added font-medium
+              className="w-full flex justify-between items-center py-2.5 px-3 rounded hover:bg-gray-700 hover:text-[#FBBF24] transition text-left font-medium"
             >
               <span>Products</span>
               <FiChevronDown
@@ -154,39 +158,33 @@ const Navbar = ({ onToggleModal }) => {
                 }`}
               />
             </button>
-            {/* Conditionally rendered product links container */}
-            {/* Added styling to make it look like a sub-menu block */}
             {productsMenuOpen && (
               <div className="ml-4 mt-1 pl-2 py-1 border-l-2 border-gray-600 space-y-1 bg-gray-800/30 rounded-r-md">
-                {" "}
-                {/* Styling for sub-menu block */}
-                <Link
-                  to="/product/TrackerOnly"
+                <a
+                  href="/product/TrackerOnly"
                   className="block py-1.5 px-3 rounded hover:bg-gray-700 hover:text-[#FBBF24] transition text-sm"
                   onClick={() => setMenuOpen(false)}
                 >
                   Tracker Only
-                </Link>
-                <Link
-                  to="/product/iTrackerBase"
+                </a>
+                <a
+                  href="/product/iTrackerBase"
                   className="block py-1.5 px-3 rounded hover:bg-gray-700 hover:text-[#FBBF24] transition text-sm"
                   onClick={() => setMenuOpen(false)}
                 >
                   iTracker-Base
-                </Link>
-                <Link
-                  to="/product/iTrackerPro"
+                </a>
+                <a
+                  href="/product/iTrackerPro"
                   className="block py-1.5 px-3 rounded hover:bg-gray-700 hover:text-[#FBBF24] transition text-sm"
                   onClick={() => setMenuOpen(false)}
                 >
                   iTracker-Pro
-                </Link>
+                </a>
               </div>
             )}
           </div>
-          {/* --- End Collapsible Products Section --- */}
 
-          {/* <Link to="/about" className="block py-2.5 px-3 rounded hover:bg-gray-700 hover:text-[#FBBF24] transition" onClick={() => setMenuOpen(false)}>About Us</Link> */}
           <a
             href="#contact"
             className="block py-2.5 px-3 rounded hover:bg-gray-700 hover:text-[#FBBF24] transition"
@@ -194,12 +192,10 @@ const Navbar = ({ onToggleModal }) => {
           >
             Contact Us
           </a>
-          {/* Quote Button Removed */}
         </nav>
       </div>
-
-      {/* Modal rendering handled in App.jsx */}
     </nav>
   );
 };
+
 export default Navbar;

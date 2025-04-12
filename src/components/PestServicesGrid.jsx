@@ -83,7 +83,7 @@ const PestServicesGrid = ({ highlightedProduct }) => {
       pestType: "Tracker Only",
       description:
         "Most trusted, basic termite detection tool, making professional termite management 'Professional'",
-      imageSrc: trackerOnly,
+      imageSrc: "/images/trackerOnly.png",
       price: 89,
       point1: "Light Weight",
       point2: "Easy to handle",
@@ -93,7 +93,7 @@ const PestServicesGrid = ({ highlightedProduct }) => {
       pestType: "iTracker-Base",
       description:
         'An upgraded tool in "Professional Termite Management", heavily relying on scientific inspection in termite management.',
-      imageSrc: itrackerBase,
+      imageSrc: "/images/itrackerBase.jpg",
       price: 79,
       point1: "Termite Tracking ",
       point2: "Temperature Sensor",
@@ -103,7 +103,7 @@ const PestServicesGrid = ({ highlightedProduct }) => {
       pestType: "iTracker-Pro",
       description:
         "With thermal imaging this professional inspection tool gives termite management an edge in the ever competitive scenario.",
-      imageSrc: itrackerPro,
+      imageSrc: "/images/trackerPro.jpg",
       price: 69,
       point1: "Termite Tracking",
       point2: "Temperature & Humidity Sensor",

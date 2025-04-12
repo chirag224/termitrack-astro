@@ -2,6 +2,7 @@
 // src/pages/index.astro
 // Defines the content for the homepage route ('/').
 // Generated on: Saturday, April 12, 2025 at 11:43:45 AM IST (Mumbai, MH, IN)
+import "../styles/global.css";
 
 import HomeLayout from '../layouts/HomeLayout.astro'; // Use the specific layout
 
@@ -31,7 +32,7 @@ const pageDescription = "Welcome to TermiTrack. Explore our advanced termite det
 
   {/* Render page sections in order */}
   {/* Components without client:* are rendered as static HTML initially */}
-  <HeroSection />
+  <HeroSection client:load />
 
   {/* Render the main interactive island */}
   {/* client:load hydrates immediately */}

@@ -3,7 +3,6 @@ import TopBar from "../components/TopBar.jsx";
 import NavBar from "../components/NavBar.jsx";
 import Footer from "../components/Footer.jsx";
 import FixedContacts from "../components/FixedContacts.jsx";
-import ReactRouterWrapper from "../components/ReactRouterWrapper.jsx"; // Import wrapper
 export interface Props {
   title: string;
   description: string;
@@ -33,10 +32,8 @@ const fixedContactsNeedsJS: boolean = false;
   {/* Render shared components, applying client directives conditionally */}
   <TopBar client:load={topBarNeedsJS || undefined} />
 
-  {/* Wrap NavBar with ReactRouterWrapper to provide BrowserRouter context */}
-  <!-- <ReactRouterWrapper>
-    <NavBar client:load={navBarNeedsJS || undefined} onToggleModal={() => { console.log('Toggle Modal (Placeholder)'); }} />
-  </ReactRouterWrapper> -->
+  {/* NavBar no longer wrapped with React Router */}
+  <NavBar client:load={navBarNeedsJS || undefined} onToggleModal={() => { console.log('Toggle Modal (Placeholder)'); }} />
 
   <FixedContacts client:load={fixedContactsNeedsJS || undefined} />
 
