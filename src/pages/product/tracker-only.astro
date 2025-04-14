@@ -1,0 +1,132 @@
+---
+
+import MainLayout from '../../layouts/MainLayout.astro';
+import '../../styles/global.css'
+
+import ProductHero from "../../components/ProductHero.jsx";
+import NewsTicker from "../../components/NewsTicker.jsx";
+import ProductOverview from "../../components/ProductOverview.jsx";
+import HowItWorks from "../../components/HowItWorks.jsx";
+import BenefitsGrid from "../../components/BenefitsGrid.jsx";
+import Videosection from "../../components/Videosection.jsx";
+import TechSpecs from "../../components/TechSpecs.jsx";
+import CallToAction from "../../components/CallToAction.jsx";
+
+// SEO Metadata
+const pageTitle = "Tracker Only - Affordable Termite Tracking | TermiTrack";
+const pageDescription = "Explore Tracker Only – the essential radar-based termite detection device. Lightweight, portable, and trusted for basic inspections.";
+
+// Emoji icons
+const RadarIcon = "📡";
+const CheckIcon = "✓";
+
+// Page data
+const trackerOnlyData = {
+  hero: {
+    productName: "Tracker Only",
+    subTitle: "Essential Termite Tracking",
+    description:
+      "The original Termatrac technology for reliable, non-invasive termite tracking.",
+    buttonText: "ORDER TRACKER-ONLY",
+    buttonLink: "/contact?product=tracker",
+  },
+  NewsTicker: {
+    text: "Special April Offer: Free carrying case with every iTraker Base purchase! Valid until April 30th, 2025.",
+  },
+  overview: {
+    heading: "Simple, Reliable Termite Tracking",
+    imageAlt: "Termatrac Tracker Only Device",
+    paragraphs: [
+      "The foundational tool utilizing Termatrac's patented Radar technology to accurately track termite movement without penetration.",
+      "A budget-friendly and easy-to-use option for professionals needing core tracking capabilities.",
+    ],
+    features: [
+      "Termite Tracking",
+      "Lightweight & Portable Design",
+      "Simple Operation",
+      "Proven Reliability",
+    ],
+    buttonText: "Get Pricing",
+    buttonLink: "/contact?product=tracker",
+  },
+  howItWorks: {
+    heading: "Core Tracking Technology",
+    features: [
+      {
+        icon: RadarIcon,
+        title: "Termite Tracker",
+        description: "Detects termite movement through common building materials.",
+      },
+    ],
+  },
+  benefits: {
+    heading: "Benefits of the Tracker Only",
+    items: [
+      {
+        icon: CheckIcon,
+        title: "Affordable Entry",
+        description: "Access essential tracking technology at a budget-friendly price point.",
+      },
+      {
+        icon: CheckIcon,
+        title: "Easy to Use",
+        description: "Simple operation makes it quick to learn and deploy in the field.",
+      },
+      {
+        icon: CheckIcon,
+        title: "Non-Invasive Method",
+        description: "Track termites without damaging walls or structures.",
+      },
+      {
+        icon: CheckIcon,
+        title: "Proven Technology",
+        description: "Based on the original, trusted Termatrac Radar system.",
+      },
+      {
+        icon: CheckIcon,
+        title: "Lightweight & Portable",
+        description: "Easy to carry and maneuver during inspections.",
+      },
+    ],
+  },
+  video: {
+    heading: "See the Tracker in Action",
+    videoId: null, // Replace with actual ID if available
+  },
+  techSpecs: {
+    heading: "Tracker Specifications",
+    specs: [
+      { label: "Sensors Included", value: "Termite Tracker" },
+      { label: "Connectivity", value: "N/A (Standalone or specific interface)" },
+      { label: "App Compatibility", value: "N/A (or specific legacy software)" },
+      { label: "Battery", value: "Standard Replaceable or Rechargeable" },
+      { label: "Weight", value: "Approx. 450g" },
+      { label: "Warranty", value: "1 Year Limited Warranty" },
+    ],
+  },
+  cta: {
+    heading: "Start Tracking Termites Reliably",
+    text: "Get the essential tool for non-invasive termite tracking. Inquire about the Tracker Only today.",
+    primaryButtonText: "GET TRACKER PRICING",
+    primaryButtonLink: "/contact?product=tracker",
+    secondaryButtonText: "Compare Models",
+    secondaryButtonLink: "/comparison",
+  },
+};
+---
+
+<MainLayout title={pageTitle} description={pageDescription}>
+  <ProductHero {...trackerOnlyData.hero} />
+  <NewsTicker text={trackerOnlyData.NewsTicker.text} />
+  <ProductOverview {...trackerOnlyData.overview} />
+  {trackerOnlyData.howItWorks.features.length > 0 && (
+    <HowItWorks {...trackerOnlyData.howItWorks} />
+  )}
+  <BenefitsGrid
+    heading={trackerOnlyData.benefits.heading}
+    benefits={trackerOnlyData.benefits.items}
+  />
+  {trackerOnlyData.video.videoId && <Videosection {...trackerOnlyData.video} />}
+  <TechSpecs {...trackerOnlyData.techSpecs} />
+  <CallToAction {...trackerOnlyData.cta} />
+</MainLayout>

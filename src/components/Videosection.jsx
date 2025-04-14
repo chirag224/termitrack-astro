@@ -1,6 +1,6 @@
 import React from "react";
 
-const VideoSection = ({
+const Videosection = ({
   heading = "See It In Action",
   videoId = null, // Expects YouTube Video ID string
 }) => {
@@ -34,4 +34,4 @@ const VideoSection = ({
   );
 };
 
-export default VideoSection;
+export default Videosection;

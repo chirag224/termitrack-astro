@@ -1,0 +1,156 @@
+---
+
+import MainLayout from '../../layouts/MainLayout.astro';
+import '../../styles/global.css'
+
+import ProductHero from "../../components/ProductHero.jsx";
+import ProductOverview from "../../components/ProductOverview.jsx";
+import HowItWorks from "../../components/HowItWorks.jsx";
+import BenefitsGrid from "../../components/BenefitsGrid.jsx";
+import Videosection from "../../components/Videosection.jsx";
+import TechSpecs from "../../components/TechSpecs.jsx";
+import CallToAction from "../../components/CallToAction.jsx";
+import NewsTicker from "../../components/NewsTicker.jsx";
+
+// SEO Metadata
+const pageTitle = "iTraker Pro - Advanced Termite Detection | TermiTrack";
+const pageDescription = "Explore iTraker Pro – the ultimate in termite detection with thermal, moisture, and movement sensors. Trusted by professionals for non-invasive precision.";
+
+// Icon placeholders (replace with SVG components later if needed)
+const RadarIcon = "📡";
+const TempIcon = "🌡️";
+const ThermalIcon = "🔥";
+const CheckIcon = "✓";
+
+// Page content data
+const proProductData = {
+  hero: {
+    productName: "iTraker Pro",
+    subTitle: "Advanced Termite Detection Tool",
+    description:
+      "Unmatched precision with Thermal, and Moisture sensors for non-invasive termite inspection.",
+    buttonText: "ORDER iTRACKER-PRO",
+    buttonLink: "/contact?product=pro",
+  },
+  NewsTicker: {
+    text: "Special April Offer: Free carrying case with every iTraker Base purchase! Valid until April 30th, 2025.",
+  },
+  overview: {
+    heading: "Detect the Undetectable with iTraker® Pro",
+    imageAlt: "iTraker Pro Termite Detection Device",
+    paragraphs: [
+      "Engineered for elite pest management professionals, the iTraker® Pro integrates three powerful sensors into one ergonomic device. Gain definitive insights without damaging property.",
+      "Its advanced technology suite provides comprehensive data for accurate diagnosis and targeted treatment planning.",
+    ],
+    features: [
+      "Termite Tracking",
+      "High-Resolution Thermal Sensor",
+      "Precision Moisture Sensor",
+      "Ambient Temperature Sensor",
+      "Bluetooth Connectivity & Reporting App",
+    ],
+    buttonText: "GET PRICING",
+    buttonLink: "/demo?product=pro",
+  },
+  howItWorks: {
+    heading: "Multi-Sensor Technology Explained",
+    features: [
+      {
+        icon: RadarIcon,
+        title: "Termite Tracker",
+        description: "Detects termite movement through common building materials.",
+      },
+      {
+        icon: TempIcon,
+        title: "Moisture & Temperature",
+        description:
+          "Identifies moisture anomalies and temperature variations often linked to termite activity and conducive environments.",
+      },
+      {
+        icon: ThermalIcon,
+        title: "Thermal Sensor",
+        description:
+          "Reveals subtle heat signatures produced by active termite colonies, pinpointing hidden infestations.",
+      },
+    ],
+  },
+  benefits: {
+    heading: "Why Choose iTraker Pro?",
+    items: [
+      {
+        icon: CheckIcon,
+        title: "Definitive Detection",
+        description:
+          "Highest accuracy with combined sensor data reduces guesswork and ensures effective treatment.",
+      },
+      {
+        icon: CheckIcon,
+        title: "Completely Non-Invasive",
+        description:
+          "Inspect thoroughly without drilling, cutting, or damaging client property. Preserves structural integrity.",
+      },
+      {
+        icon: CheckIcon,
+        title: "Save Time & Resources",
+        description:
+          "Quickly scan large areas, pinpoint activity precisely, and avoid unnecessary, widespread treatments.",
+      },
+      {
+        icon: CheckIcon,
+        title: "Enhanced Professionalism",
+        description:
+          "Provide clients with clear, data-backed reports generated via the mobile app, building trust.",
+      },
+      {
+        icon: CheckIcon,
+        title: "Versatile & Reliable",
+        description:
+          "Effective in various environments and materials for residential, commercial, and pre-purchase inspections.",
+      },
+      {
+        icon: CheckIcon,
+        title: "Comprehensive Data",
+        description:
+          "Combines movement, thermal, and moisture data for a complete picture of potential infestations.",
+      },
+    ],
+  },
+  video: {
+    heading: "See iTraker Pro in Action",
+    videoId: "YOUR_ITRAKER_PRO_YOUTUBE_ID", // Replace with real video ID
+  },
+  techSpecs: {
+    heading: "iTraker Pro Specifications",
+    specs: [
+      { label: "Sensors Included", value: "Thermal, Moisture, Temperature" },
+      { label: "Connectivity", value: "Bluetooth 5.0 LE" },
+      { label: "App Compatibility", value: "iOS 13+, Android 8+" },
+      { label: "Battery", value: "Rechargeable Li-ion, ~8 Hrs Use" },
+      { label: "Weight", value: "Approx. 550g" },
+      { label: "Warranty", value: "1 Year Limited Warranty" },
+    ],
+  },
+  cta: {
+    heading: "Elevate Your Inspections with iTraker Pro",
+    text: "Gain the competitive edge with the most advanced termite detection technology available. Order your iTraker Pro today.",
+    primaryButtonText: "GET TRACKER PRICING",
+    primaryButtonLink: "/contact?product=pro",
+    secondaryButtonText: "GET TRACKER PRICING",
+    secondaryButtonLink: "/demo?product=pro",
+  },
+};
+---
+
+<MainLayout title={pageTitle} description={pageDescription}>
+  <ProductHero {...proProductData.hero} />
+  <NewsTicker text={proProductData.NewsTicker.text} />
+  <ProductOverview {...proProductData.overview} />
+  <HowItWorks {...proProductData.howItWorks} />
+  <BenefitsGrid
+    heading={proProductData.benefits.heading}
+    benefits={proProductData.benefits.items}
+  />
+  {proProductData.video.videoId && <Videosection {...proProductData.video} />}
+  <TechSpecs {...proProductData.techSpecs} />
+  <CallToAction {...proProductData.cta} />
+</MainLayout>

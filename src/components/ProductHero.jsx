@@ -1,11 +1,9 @@
 import React from "react";
-import IndiaMap_Termitrack from "../../public/images/IndiaMap_Termitrack.png";
-
 const ProductHero = ({
   productName = "Product Name", // Default values
   subTitle = "Product Subtitle",
   description = "Product description goes here.",
-  backgroundImageUrl = IndiaMap_Termitrack, // Needs a valid image path/URL
+  backgroundImageUrl = "/images/IndiaMap_Termitrack.png", // Needs a valid image path/URL
   buttonText = "ORDER NOW",
   buttonLink = "#",
 }) => {
@@ -13,7 +11,7 @@ const ProductHero = ({
     <section
       className="relative bg-contain bg-right mt-10 bg-no-repeat text-white py-32 md:py-48 "
       // Use prop for background image - ensure URL is valid
-      style={{ backgroundImage: `url("${backgroundImageUrl}")` }}
+      style={{ backgroundImage: "/images/IndiaMap_Termitrack.png" }}
     >
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-black opacity-50"></div>

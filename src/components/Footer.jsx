@@ -1,4 +1,3 @@
-import logo from "../../public/images/logoPart.png"; // Adjust path if needed
 const Footer = () => {
   return (
     <footer className="bg-[#003229] text-white py-12">
@@ -7,7 +6,11 @@ const Footer = () => {
           {/* Column 1: Logo & About */}
           <div>
             <div className="flex items-center">
-              <img src={logo} alt="Logo Symbol" className="h-10" />
+              <img
+                src="/images/logoPart.png"
+                alt="Logo Symbol"
+                className="h-10"
+              />
               <span className=" font-varela text-4xl font-bold text-white">
                 Termitrack
               </span>

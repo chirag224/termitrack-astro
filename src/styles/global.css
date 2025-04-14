@@ -1,1 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
 @import "tailwindcss";
+
+/* Custom Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+.h2-style {
+  @apply text-5xl leading-normal sm:font-semibold max-w-2xl;
+}
+
+@layer utilities {
+  .paused-on-hover:hover {
+    animation-play-state: paused !important;
+  }
+}
+
+/* Optional: Custom animations (if applicable) */
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animation-ticker {
+  animation: ticker-scroll 45s linear infinite;
+}

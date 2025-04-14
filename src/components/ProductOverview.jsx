@@ -1,9 +1,8 @@
 import React from "react";
-import ITRAKER_PRODUCT from "../../public/images/ITRAKER_PRODUCT.png"; // Assuming default image path
 
 const ProductOverview = ({
   heading = "Product Overview Heading",
-  imageUrl = ITRAKER_PRODUCT, // Using the imported default image
+  imageUrl = "/images/ITRAKER_PRODUCT.png", // Using the imported default image
   imageAlt = "Product Image",
   paragraphs = [], // Expects an array of strings
   features = [], // Expects an array of strings

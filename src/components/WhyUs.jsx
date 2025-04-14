@@ -1,10 +1,5 @@
 import { IoIosHammer } from "react-icons/io";
-import portable from "../../public/images/portable.webp";
-import inspection from "../../public/images/inspection.jpg";
-import confidence from "../../public/images/confidence.jpg";
-import cost from "../../public//images/cost.jpg";
-import reliable from "../../public//images/reliable.jpg";
-import multitasking from "../../public//images/multiTasking.jpg";
+
 const WhyChooseUs = () => {
   return (
     <section className="bg-[#FBF6E9] text-[#003229] py-16 px-6 md:px-12">
@@ -54,7 +49,7 @@ const WhyChooseUs = () => {
           <div className="flex items-start space-x-4">
             <div className="w-10 h-10">
               <img
-                src={portable}
+                src="/images/portable.webp"
                 alt="Multi Tasking Tool"
                 className="w-full h-full object-contain"
               />
@@ -68,7 +63,7 @@ const WhyChooseUs = () => {
           <div className="flex items-start space-x-4">
             <div className="w-10 h-10">
               <img
-                src={inspection}
+                src="/images/inspection.jpg"
                 alt="Multi Tasking Tool"
                 className="w-full h-full object-contain"
               />
@@ -84,7 +79,7 @@ const WhyChooseUs = () => {
           <div className="flex items-start space-x-4">
             <div className="w-10 h-10">
               <img
-                src={confidence}
+                src="/images/confidence.jpg"
                 alt="Multi Tasking Tool"
                 className="w-full h-full object-contain"
               />
@@ -103,7 +98,7 @@ const WhyChooseUs = () => {
           <div className="flex items-start space-x-4">
             <div className="w-10 h-10">
               <img
-                src={cost}
+                src="/images/cost.jpg"
                 alt="Multi Tasking Tool"
                 className="w-full h-full object-contain"
               />
@@ -119,7 +114,7 @@ const WhyChooseUs = () => {
           <div className="flex items-start space-x-4">
             <div className="w-10 h-10">
               <img
-                src={reliable}
+                src="/images/reliable.jpg"
                 alt="Multi Tasking Tool"
                 className="w-full h-full object-contain"
               />
@@ -135,7 +130,7 @@ const WhyChooseUs = () => {
           <div className="flex items-start space-x-4">
             <div className="w-10 h-10">
               <img
-                src={multitasking}
+                src="/images/multiTasking.jpg"
                 alt="Multi Tasking Tool"
                 className="w-full h-full object-contain"
               />

@@ -1,0 +1,149 @@
+---
+
+// Use the lean MainLayout (navbar + footer only)
+import MainLayout from '../../layouts/MainLayout.astro';
+import '../../styles/global.css'
+// React component imports
+import ProductHero from "../../components/ProductHero";
+import ProductOverview from "../../components/ProductOverview.jsx";
+import HowItWorks from "../../components/HowItWorks.jsx";
+import BenefitsGrid from "../../components/BenefitsGrid.jsx";
+import Videosection from "../../components/Videosection.jsx";
+import TechSpecs from "../../components/TechSpecs.jsx";
+import CallToAction from "../../components/CallToAction.jsx";
+import NewsTicker from "../../components/NewsTicker.jsx";
+
+// SEO metadata
+const pageTitle = "iTraker Base - Reliable Termite Detection | TermiTrack";
+const pageDescription = "Discover the iTraker Base – your go-to non-invasive termite detection tool. Featuring moisture and temperature sensors, perfect for professionals.";
+
+// Simple icons (can be replaced with SVG components later)
+const RadarIcon = "📡";
+const TempIcon = "🌡️";
+const CheckIcon = "✓";
+
+// Page-specific content data
+const baseProductData = {
+  hero: {
+    productName: "iTraker Base",
+    subTitle: "Reliable Termite Detection Tool",
+    description:
+      "Dependable termite detection using Moisture, and Temperature sensors for professional inspections.",
+    buttonText: "ORDER iTRAKER-BASE",
+    buttonLink: "/contact?product=base",
+  },
+  NewsTicker: {
+    text: "Special April Offer: Free carrying case with every iTraker Base purchase! Valid until April 30th, 2025.",
+  },
+  overview: {
+    heading: "Accurate, Non-Invasive Detection with iTraker® Base",
+    imageAlt: "iTraker Base Termite Detection Device",
+    paragraphs: [
+      "The iTraker® Base provides essential sensor technology for reliable termite detection without property damage.",
+      "Ideal for professionals seeking a balance of advanced features and cost-effectiveness.",
+    ],
+    features: [
+      "Termite Tracking",
+      "Precision Moisture Sensor",
+      "Ambient Temperature Sensor",
+      "Easy-to-use Mobile App",
+      "Durable Construction",
+    ],
+    buttonText: "GET PRICING",
+    buttonLink: "/demo?product=base",
+  },
+  howItWorks: {
+    heading: "Core Sensor Technology",
+    features: [
+      {
+        icon: RadarIcon,
+        title: "Termite Tracker",
+        description: "Detects termite movement through common materials.",
+      },
+      {
+        icon: TempIcon,
+        title: "Moisture & Temperature",
+        description:
+          "Identifies moisture and temperature variations linked to termite presence.",
+      },
+    ],
+  },
+  benefits: {
+    heading: "Benefits of Using iTraker Base",
+    items: [
+      {
+        icon: CheckIcon,
+        title: "Reliable Detection",
+        description:
+          "Core sensor technology for accurate identification of termite activity.",
+      },
+      {
+        icon: CheckIcon,
+        title: "100% Non-Invasive",
+        description: "Inspect properties thoroughly without causing damage.",
+      },
+      {
+        icon: CheckIcon,
+        title: "Cost-Effective Solution",
+        description:
+          "Advanced detection capabilities at an accessible price point.",
+      },
+      {
+        icon: CheckIcon,
+        title: "User-Friendly Operation",
+        description:
+          "Intuitive mobile app interface for easy data capture and reporting.",
+      },
+      {
+        icon: CheckIcon,
+        title: "Professional Reporting",
+        description: "Generate clear reports for clients based on sensor data.",
+      },
+      {
+        icon: CheckIcon,
+        title: "Durable for Field Use",
+        description:
+          "Built to withstand the demands of regular professional inspections.",
+      },
+    ],
+  },
+  video: {
+    heading: "See iTraker Base in Action",
+    videoId: "YOUR_ITRAKER_BASE_YOUTUBE_ID", // Replace this with actual YouTube video ID
+  },
+  techSpecs: {
+    heading: "iTraker Base Specifications",
+    specs: [
+      { label: "Sensors Included", value: "Termite, Moisture, Temperature" },
+      { label: "Connectivity", value: "Bluetooth 4.2" },
+      { label: "App Compatibility", value: "iOS 12+, Android 7+" },
+      { label: "Battery", value: "Rechargeable Li-ion, ~7 Hrs Use" },
+      { label: "Weight", value: "Approx. 520g" },
+      { label: "Warranty", value: "1 Year Limited Warranty" },
+    ],
+  },
+  cta: {
+    heading: "Get Reliable Results with iTraker Base",
+    text: "Step up your termite inspections with proven sensor technology. Order your iTraker Base or request a demo.",
+    primaryButtonText: "GET TRACKER PRICING",
+    primaryButtonLink: "/contact?product=base",
+    secondaryButtonText: "GET TRACKER PRICING",
+    secondaryButtonLink: "/demo?product=base",
+  },
+};
+---
+
+<!-- Layout Wrapper -->
+<MainLayout title={pageTitle} description={pageDescription}>
+  <ProductHero {...baseProductData.hero} />
+  <NewsTicker text={baseProductData.NewsTicker.text} />
+  <ProductOverview {...baseProductData.overview} />
+  <HowItWorks {...baseProductData.howItWorks} />
+  <BenefitsGrid
+    heading={baseProductData.benefits.heading}
+    benefits={baseProductData.benefits.items}
+  />
+  {baseProductData.video.videoId && <Videosection {...baseProductData.video} />}
+  <TechSpecs {...baseProductData.techSpecs} />
+  <CallToAction {...baseProductData.cta} />
+</MainLayout>

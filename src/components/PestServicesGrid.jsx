@@ -1,9 +1,5 @@
 /* eslint-disable react/prop-types */
 import { motion } from "framer-motion";
-import trackerOnly from "../images/trackerOnly.png";
-import itrackerBase from "../images/itrackerBase.jpg";
-import itrackerPro from "../../public/images/trackerPro.jpg";
-import termite from "../../public/images/termite.jpg";
 
 const PestServiceCard = ({
   pestType,
@@ -41,7 +37,7 @@ const PestServiceCard = ({
         <div className="flex items-center justify-between mb-4">
           <div className="bg-yellow-100 p-2 rounded-full">
             <img
-              src={termite}
+              src="/images/termite.jpg"
               className="rounded-full object-cover h-8 w-8"
               alt="Termite Detection Sensor"
             />
